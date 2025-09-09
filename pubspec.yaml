@@ -1,0 +1,37 @@
+name: rain_now_complete
+description: Complete Rain Now Flutter app with all web functionality
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  http: ^1.1.0
+  shared_preferences: ^2.2.2
+  geolocator: ^10.1.0
+  permission_handler: ^11.3.1
+  fl_chart: ^0.68.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  intl: ^0.20.2
+  cached_network_image: ^3.3.0
+  provider: ^6.1.1
+  url_launcher: ^6.2.5
+  flutter_local_notifications: ^17.2.2
+  google_mobile_ads: ^5.1.0
+  purchases_flutter: ^8.6.0
+  # timezone: ^0.9.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/

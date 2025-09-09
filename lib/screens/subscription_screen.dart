@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:rain_now_complete/services/revenue_cat_service.dart';
 import '../providers/subscription_provider.dart';
 import '../providers/theme_provider.dart';
 import '../providers/language_provider.dart';
@@ -303,34 +304,34 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   }
 
   Widget _buildMockSubscriptionPlans(bool isDarkMode, SubscriptionProvider subscriptionProvider) {
-    final plans = [
-      {
-        'title': 'Premium Monthly',
-        'price': '\$4.99',
-        'period': '/month',
-        'description': 'Full access to all premium features',
-        'isPopular': false,
-      },
-      {
-        'title': 'Premium Yearly',
-        'price': '\$39.99',
-        'period': '/year',
-        'description': 'Save 33% with yearly subscription',
-        'isPopular': true,
-      },
-      {
-        'title': 'Premium Lifetime',
-        'price': '\$99.99',
-        'period': 'once',
-        'description': 'One-time payment, lifetime access',
-        'isPopular': false,
-      },
-    ];
-
+    // final plans = [
+    //   {
+    //     'title': 'Premium Monthly',
+    //     'price': '\$4.99',
+    //     'period': '/month',
+    //     'description': 'Full access to all premium features',
+    //     'isPopular': false,
+    //   },
+    //   {
+    //     'title': 'Premium Yearly',
+    //     'price': '\$39.99',
+    //     'period': '/year',
+    //     'description': 'Save 33% with yearly subscription',
+    //     'isPopular': true,
+    //   },
+    //   {
+    //     'title': 'Premium Lifetime',
+    //     'price': '\$99.99',
+    //     'period': 'once',
+    //     'description': 'One-time payment, lifetime access',
+    //     'isPopular': false,
+    //   },
+    // ];
+final List<Package> plans = subscriptionProvider.availablePackages;
     return Column(
       children: plans.map((plan) {
-        final isPopular = plan['isPopular'] as bool;
-        
+        final isPopular = plan.storeProduct.title.contains('Yearly') || plan.storeProduct.title.contains('Annual');
+
         return Container(
           margin: const EdgeInsets.only(bottom: 15),
           decoration: BoxDecoration(
@@ -376,7 +377,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              plan['title'] as String,
+                              plan.storeProduct.title,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -385,7 +386,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              plan['description'] as String,
+                              plan.storeProduct.description,
                               style: TextStyle(
                                 fontSize: 14,
                                 color: isDarkMode ? Colors.white70 : Colors.black54,
@@ -397,7 +398,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              plan['price'] as String,
+                              plan.storeProduct.priceString,
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -405,7 +406,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                               ),
                             ),
                             Text(
-                              plan['period'] as String,
+                              plan.storeProduct.subscriptionPeriod as String,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: isDarkMode ? Colors.white70 : Colors.black54,
@@ -422,6 +423,8 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
+                          final subscriptionProvider = context.watch<SubscriptionProvider>();
+                          // subscriptionProvider.purchaseSubscription(package);
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Please configure RevenueCat with your actual API keys to enable purchases'),

@@ -73,9 +73,11 @@ class RevenueCatService {
 
     try {
       final offerings = await Purchases.getOfferings();
-      if (offerings.current != null) {
-        return offerings.current!.availablePackages;
-      }
+      // if (offerings.all != null) {
+        return offerings.all.values
+            .expand((offering) => offering.availablePackages)
+            .toList();
+      // }
     } catch (e) {
       debugPrint('Error getting packages: $e');
     }

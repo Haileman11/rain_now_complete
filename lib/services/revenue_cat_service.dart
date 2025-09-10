@@ -11,7 +11,7 @@ class RevenueCatService {
   bool _isPremium = false;
   
   // RevenueCat API Keys (Replace with your actual keys)
-  static const String _androidApiKey = 'goog_YOUR_GOOGLE_API_KEY';
+  static const String _androidApiKey = 'goog_GefeoatysKtTKqnLRPqoCicRImV';
   static const String _iosApiKey = 'appl_LcXQpCVrzyoKNMzOJotieFHCfAE';
 
   // Product IDs (Configure these in RevenueCat dashboard)

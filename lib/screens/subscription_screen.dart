@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
-import 'package:rain_now_complete/services/revenue_cat_service.dart';
+import '../services/revenue_cat_service.dart';
 import '../providers/subscription_provider.dart';
 import '../providers/theme_provider.dart';
 import '../providers/language_provider.dart';

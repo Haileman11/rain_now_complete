@@ -6,18 +6,18 @@
     "configurations": [
     
         {
-            "name": "rain_now_complete",
+            "name": "rain_watcher",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "rain_now_complete (profile mode)",
+            "name": "rain_watcher (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "rain_now_complete (release mode)",
+            "name": "rain_watcher (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

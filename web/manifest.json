@@ -1,6 +1,6 @@
 {
-    "name": "rain_now_complete",
-    "short_name": "rain_now_complete",
+    "name": "rain_watcher",
+    "short_name": "rain_watcher",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

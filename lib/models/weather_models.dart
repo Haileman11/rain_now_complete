@@ -46,7 +46,7 @@ class ForecastDay {
   final DateTime date;
   final double tempMax;
   final double tempMin;
-  final int humidity;
+  final double humidity;
   final double windSpeed;
   final String description;
   final String icon;
@@ -68,7 +68,7 @@ class ForecastDay {
       date: DateTime.fromMillisecondsSinceEpoch(json['dt'] * 1000),
       tempMax: (json['main']['temp_max'] as num).toDouble(),
       tempMin: (json['main']['temp_min'] as num).toDouble(),
-      humidity: json['main']['humidity'] as int,
+      humidity: (json['main']['humidity'] as num).toDouble(),
       windSpeed: (json['wind']['speed'] as num).toDouble(),
       description: json['weather'][0]['description'] ?? '',
       icon: json['weather'][0]['icon'] ?? '01d',

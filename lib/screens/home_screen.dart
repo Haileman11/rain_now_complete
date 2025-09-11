@@ -31,10 +31,13 @@ class _HomeScreenState extends State<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initializeWeatherData();
     });
-    _loadInterstitial();
 
   }
-
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _loadInterstitial();
+  }
   Future<void> _initializeWeatherData() async {
     final weatherProvider = context.read<WeatherProvider>();
     

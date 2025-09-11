@@ -141,10 +141,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                   Text(
                     'Rain Now',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: isDarkMode ? Colors.white : Colors.black87,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     _getLocationText(weatherProvider),
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
+                      color: isDarkMode ? Colors.white.withOpacity(0.7) : Colors.black87.withOpacity(0.7),
                       fontSize: 14,
                     ),
                   ),
@@ -164,16 +164,16 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 IconButton(
                   onPressed: () => setState(() => _showSearch = true),
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.search,
-                    color: Colors.white,
+                    color: isDarkMode ? Colors.white : Colors.black87,
                   ),
                 ),
                 IconButton(
                   onPressed: () => themeProvider.toggleTheme(),
                   icon: Icon(
                     isDarkMode ? Icons.light_mode : Icons.dark_mode,
-                    color: Colors.white,
+                    color: isDarkMode ? Colors.white : Colors.black87,
                   ),
                 ),
               ],

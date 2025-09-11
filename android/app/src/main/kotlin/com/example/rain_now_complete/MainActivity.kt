@@ -1,4 +1,4 @@
-package com.example.rain_now_complete
+package com.rainalerts.raintoday
 
 import io.flutter.embedding.android.FlutterActivity
 

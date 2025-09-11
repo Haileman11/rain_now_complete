@@ -565,12 +565,12 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('About Rain Now'),
+          title: const Text('About Rain Watcher'),
           content: const Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Rain Now - Weather App'),
+              Text('Rain Watcher - Weather App'),
               SizedBox(height: 8),
               Text('Version: 1.0.0'),
               SizedBox(height: 8),

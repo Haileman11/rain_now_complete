@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Rain Now</string>
+	<string>Rain Watcher</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,9 +34,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Rain Now needs location access to provide accurate weather forecasts for your area.</string>
+	<string>Rain Watcher needs location access to provide accurate weather forecasts for your area.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Rain Now needs location access to provide accurate weather forecasts for your area.</string>
+	<string>Rain Watcher needs location access to provide accurate weather forecasts for your area.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

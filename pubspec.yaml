@@ -1,5 +1,5 @@
-name: rain_now_complete
-description: Complete Rain Now Flutter app with all web functionality
+name: rain_watcher
+description: Rain Watcher - Weather App
 version: 1.0.0+1
 
 environment:

@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                    Text(
-                    'Rain Now',
+                    'Rain Watcher',
                     style: TextStyle(
                       color: isDarkMode ? Colors.white : Colors.black87,
                       fontSize: 20,
@@ -487,20 +487,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: isDarkMode ? AppColors.darkSecondary : AppColors.lightSecondary,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Text(
-                  '🎁 ${language.t('refresh')}',
-                  style: const TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ),
+              
             ],
           ),
           

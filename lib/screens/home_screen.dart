@@ -23,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _showSearch = false;
+  InterstitialAd? _interstitialAd;
 
   @override
   void initState() {
@@ -30,6 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initializeWeatherData();
     });
+    _loadInterstitial();
+
   }
 
   Future<void> _initializeWeatherData() async {
@@ -43,6 +46,36 @@ class _HomeScreenState extends State<HomeScreen> {
         weatherProvider.selectedLocation == null) {
       await weatherProvider.initializeWeatherData();
     }
+  }
+
+  void _loadInterstitial() {
+    InterstitialAd.load(
+      adUnitId: AdMobService.interstitialAdUnitId, // Use test ID
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (InterstitialAd ad) {
+          _interstitialAd = ad;
+
+          // Show right away when loaded (first app open)
+          _interstitialAd?.show();
+
+          // Dispose after showing
+          _interstitialAd?.fullScreenContentCallback =
+              FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (InterstitialAd ad) {
+              ad.dispose();
+            },
+            onAdFailedToShowFullScreenContent:
+                (InterstitialAd ad, AdError error) {
+              ad.dispose();
+            },
+          );
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          print('Interstitial failed to load: $error');
+        },
+      ),
+    );
   }
 
   @override

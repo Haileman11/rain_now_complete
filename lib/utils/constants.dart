@@ -17,7 +17,12 @@ class AppColors {
 }
 
 class AppConstants {
-  static const String apiBaseUrl = 'http://localhost:5000';
+  // Replit links
+  static const String replitLink1 = 'https://replit.com/@adilgte2014/RainfallWatcher#.replit';
+  static const String replitLink2 = 'https://rainfallwatcher.adilgte2014.repl.co';
+
+  static const String apiBaseUrl = 'https://rainfall-watcher-adilgte2014.replit.app';
+  // static const String apiBaseUrl = 'http://localhost:5000'; --- IGNORE ---
   static const Duration refreshInterval = Duration(minutes: 5);
   static const Duration rainForecastInterval = Duration(minutes: 1);
   

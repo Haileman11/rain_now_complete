@@ -271,6 +271,8 @@ class WeatherProvider with ChangeNotifier {
     if (_selectedLocation != null) {
       // Load weather for saved selected location
       await loadWeatherData(_selectedLocation!['lat'], _selectedLocation!['lon']);
+      // await loadForecast(_selectedLocation!['lat'], _selectedLocation!['lon']);
+      await loadRainForecast(_selectedLocation!['lat'], _selectedLocation!['lon']);
     } else if (_currentPosition != null) {
       // Load weather for GPS location only if no saved location
       await loadWeatherData(_currentPosition!.latitude, _currentPosition!.longitude);

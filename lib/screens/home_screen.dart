@@ -49,6 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _loadInterstitial() {
+    final subscriptionProvider = context.watch<SubscriptionProvider>();
+    if (subscriptionProvider.isPremium) return; // No ads for premium users
     InterstitialAd.load(
       adUnitId: AdMobService.interstitialAdUnitId, // Use test ID
       request: const AdRequest(),
@@ -104,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: _buildMainContent(isDarkMode, language, weatherProvider, settingsProvider),
                       ),
                       // Banner Ad for free users
-                      if (subscriptionProvider.showAds)
+                      if (!subscriptionProvider.isPremium)
                         Container(
                           height: 60,
                           margin: const EdgeInsets.all(8),

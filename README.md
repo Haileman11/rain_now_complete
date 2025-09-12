@@ -290,4 +290,52 @@ For support, please contact the development team or create an issue in the repos
 
 ---
 
+## Ad Configuration
+
+This project integrates with **Google Mobile Ads (AdMob)**.  
+During development, Google’s **test Ad Unit IDs** are used to avoid invalid traffic.  
+Before publishing to the Play Store or App Store, replace them with your **real Ad Unit IDs** from the [AdMob Console](https://apps.admob.com).
+
+### Setup
+
+1. Add your **AdMob App ID** to the platform configs:
+   - **Android**: in `AndroidManifest.xml`  
+     ```xml
+     <meta-data
+         android:name="com.google.android.gms.ads.APPLICATION_ID"
+         android:value="ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY"/>
+     ```
+   - **iOS**: in `Info.plist`  
+     ```xml
+     <key>GADApplicationIdentifier</key>
+     <string>ca-app-pub-XXXXXXXXXXXXXXXX~ZZZZZZZZZZ</string>
+     ```
+
+2. Update the Ad Unit IDs in your Flutter code.  
+   Example configuration (`lib/services/admob_service.dart`):
+
+   ```dart
+   import 'dart:io';
+
+   class AdHelper {
+     static String get bannerAdUnitId {
+       if (Platform.isAndroid) {
+         return 'ca-app-pub-3940256099942544/6300978111'; // Test ID
+       } else if (Platform.isIOS) {
+         return 'ca-app-pub-3940256099942544/2934735716'; // Test ID
+       }
+       return '';
+     }
+
+     static String get interstitialAdUnitId {
+       if (Platform.isAndroid) {
+         return 'ca-app-pub-3940256099942544/1033173712'; // Test ID
+       } else if (Platform.isIOS) {
+         return 'ca-app-pub-3940256099942544/4411468910'; // Test ID
+       }
+       return '';
+     }
+   }
+
+
 **Rain Now** - Your complete weather companion with minute-by-minute precision! 🌧️📱

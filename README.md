@@ -289,6 +289,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For support, please contact the development team or create an issue in the repository.
 
 ---
+All api are set on the Vite app (backend). change them in the environment variables.
 
 ## Ad Configuration
 
